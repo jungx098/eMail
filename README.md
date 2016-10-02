@@ -8,8 +8,12 @@ First thing is first.  This file will take place as sort of a FAQ sheet, because
 
 
 A: Type the following in a shell:
-    
+
+    Original branch
         git clone --recursive git@github.com:deanproxy/eMail.git
+
+    This custom branch
+        git clone --recursive https://github.com/jungx098/eMail.git
 
 ---
 
@@ -27,10 +31,12 @@ A:  `eMail` is a program I designed that will send email via the command line
 
 
 A: Just do this as root:
-    
+
     ./configure
     make
     make install
+
+* OS X: Run './configure prefix=/opt/local/' to specify a proper target dir.
 
 ---
 
@@ -92,10 +98,10 @@ You can get online help by using the `--help` option with email and specifying t
 
 If you use the `-encrypt` or `-sign` option, you MUST have GNUPG installed on your system. `email` uses gpg to encrypt the email to the FIRST email recipient
 
-Example: 
+Example:
 
     email -s "This is the subject" -encrypt dean@somedomain.org
-    
+
 In that example, I would be sending the email to dean@somedomain.org and gpg would encrypt it with the key of `dean@somedomain.org`
 
 You can use `-high-priority` ( or -o ) to send your message in a high priority matter.  In MS Outlook you will see a little `!` mark next to the letter so that the recipient will see that the message is high priority!
@@ -113,9 +119,9 @@ Example below:
 
 If you want to create a message, you will need to do two things here.
 
-First set the environment variable "EDITOR" to your favorite editor. 
+First set the environment variable "EDITOR" to your favorite editor.
 
-Example: 
+Example:
 
     export EDITOR=vi
 
@@ -133,7 +139,7 @@ You can send to multiple recipients with `email`.  All you have to do is put com
 
 Example below:
 
-    dean@somedomain.org,another@domain.com,you@domain.com 
+    dean@somedomain.org,another@domain.com,you@domain.com
 
 Here are some more examples below:
 
@@ -147,7 +153,7 @@ Example: the example will sign the message directed to it.
 
 Example: This will send to multiple recipients
 
-    email -s "To all of you" dean@somedomain.org,you@domain.com,me@cleancode.org 
+    email -s "To all of you" dean@somedomain.org,you@domain.com,me@cleancode.org
 
 Example: Set message to high priority
 
@@ -187,8 +193,8 @@ Your sig could look like this:
 
     ---
     This message was sent: %c
-	
-    This would end up looking like: 
+
+    This would end up looking like:
 	This message was sent: Thu Dec 13 04:54:52 PM EST 2001
 
 ---
@@ -205,7 +211,7 @@ Any single name to email translation will have to have a 'single:' token before 
 	single: Dean        = dean@somedomain.org
 	single: "Full Name" = someone@somedomain.org
 
-Any group name to email translation will have to have a 'group:' token before it: 
+Any group name to email translation will have to have a 'group:' token before it:
 
 With groups, you can only use the Names of your single statements above... Format below:
 
@@ -220,9 +226,9 @@ See the `email.address.template` file for more information
 A: YES!  We now support attachments with email!
 
 Simply specify the files you want attached to your email by specifying the --attach option, with a list of files delemited by commas.  All files will be encoded with base64 and attached with the appropriate MIME headings.
-    
+
 Example:
-    
+
     email -s Attachment --attach file dean@somedomain.org
 
     # Multiple files
@@ -265,7 +271,7 @@ A: Dean Jones - Main developer
 
 http://deanproxy.com/contact/
 
-That's about it so far. 
+That's about it so far.
 I hope you like the program `eMail`.
 
 If you have any questions, bugs, or concerns please use:
